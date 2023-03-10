@@ -1,20 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package lab7p2_víctorromero;
 
-/**
- *
- * @author Hogar
- */
+import java.util.ArrayList;
+import java.util.Random;
+import javax.swing.JOptionPane;
+
 public class Google extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Google
-     */
+    static Random random = new Random();
+
     public Google() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.pack();
     }
 
     /**
@@ -26,15 +23,131 @@ public class Google extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        AddArchivos = new javax.swing.JFrame();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        ArchivoName = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        ArchivoTamaño = new javax.swing.JFormattedTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        AddCarpeta = new javax.swing.JFrame();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        ArchivoName1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Destacado = new javax.swing.JButton();
+        Papelera = new javax.swing.JButton();
+        MiUnidad = new javax.swing.JButton();
+        NewCarpeta = new javax.swing.JButton();
+        NewArchivo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setPreferredSize(new java.awt.Dimension(660, 449));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 70)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Add Archivos");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 29, 457, 82));
+        jPanel3.add(ArchivoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 550, -1));
+
+        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Nombre");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 104, 33));
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Extension");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 104, 33));
+
+        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Tamaño");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 104, 33));
+
+        ArchivoTamaño.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        jPanel3.add(ArchivoTamaño, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 550, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ".mp4", ".pdf", ".docx", ".mp3", ".pptx" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 550, -1));
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jButton1.setText("ADD ARCHIVO");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 300, 60));
+
+        AddArchivos.getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setPreferredSize(new java.awt.Dimension(660, 449));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 70)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Add Carpetas");
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 29, 457, 82));
+        jPanel4.add(ArchivoName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 550, -1));
+
+        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Nombre");
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 104, 33));
+
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jButton2.setText("ADD CARPETA");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 300, 60));
+
+        javax.swing.GroupLayout AddCarpetaLayout = new javax.swing.GroupLayout(AddCarpeta.getContentPane());
+        AddCarpeta.getContentPane().setLayout(AddCarpetaLayout);
+        AddCarpetaLayout.setHorizontalGroup(
+            AddCarpetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 660, Short.MAX_VALUE)
+            .addGroup(AddCarpetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AddCarpetaLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        AddCarpetaLayout.setVerticalGroup(
+            AddCarpetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 449, Short.MAX_VALUE)
+            .addGroup(AddCarpetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AddCarpetaLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,17 +156,30 @@ public class Google extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton1.setText("Destacados");
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 170, 60));
+        Destacado.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Destacado.setText("Destacados");
+        jPanel2.add(Destacado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 170, 60));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton2.setText("Papelera");
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 170, 60));
+        Papelera.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Papelera.setText("Papelera");
+        jPanel2.add(Papelera, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 170, 60));
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton3.setText("Mi Unidad");
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 170, 60));
+        MiUnidad.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        MiUnidad.setText("Mi Unidad");
+        jPanel2.add(MiUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 170, 60));
+
+        NewCarpeta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        NewCarpeta.setText("NEW CARPETA");
+        jPanel2.add(NewCarpeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 210, 80));
+
+        NewArchivo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        NewArchivo.setText("NEW ARCHIVO");
+        NewArchivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NewArchivoMouseClicked(evt);
+            }
+        });
+        jPanel2.add(NewArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Google2.png"))); // NOI18N
 
@@ -109,6 +235,46 @@ public class Google extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void NewArchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewArchivoMouseClicked
+        this.setVisible(false);
+
+        AddArchivos.pack();
+        AddArchivos.setLocationRelativeTo(null);
+        AddArchivos.setVisible(true);
+
+    }//GEN-LAST:event_NewArchivoMouseClicked
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        String Link = "dive.google.com/" + generateRandomLink(15);
+        Archivos a = new Archivos(
+                ArchivoName.getText(),
+                Link,
+                jComboBox1.getSelectedItem().toString(),
+                Double.parseDouble(ArchivoTamaño.getText()));
+        
+        Archivos.add(a);
+
+        AdminArchivos ap = new AdminArchivos("./archivos.virn");
+        ap.cargarArchivo();
+        ap.setArchivo(a);
+        ap.escribirArchivo();   
+        
+        JOptionPane.showMessageDialog(null, "Agregado Exitosamente!");
+        ArchivoName.setText("");
+        ArchivoTamaño.setText("");
+        System.out.println(Archivos);
+        
+        
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -144,14 +310,48 @@ public class Google extends javax.swing.JFrame {
         });
     }
 
+    public static String generateRandomLink(int cant) {
+        String caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder(cant);
+
+        for (int i = 0; i < cant; i++) {
+            int numRandom = random.nextInt(caracteres.length());
+            char caracterRandom = caracteres.charAt(numRandom);
+            sb.append(caracterRandom);
+        }
+
+        return sb.toString();
+    }
+
+    ArrayList Archivos = new ArrayList();
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame AddArchivos;
+    private javax.swing.JFrame AddCarpeta;
+    private javax.swing.JTextField ArchivoName;
+    private javax.swing.JTextField ArchivoName1;
+    private javax.swing.JFormattedTextField ArchivoTamaño;
+    private javax.swing.JButton Destacado;
+    private javax.swing.JButton MiUnidad;
+    private javax.swing.JButton NewArchivo;
+    private javax.swing.JButton NewCarpeta;
+    private javax.swing.JButton Papelera;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
