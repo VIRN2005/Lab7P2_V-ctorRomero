@@ -13,11 +13,9 @@ public class Carpetas implements Serializable {
     public Carpetas() {
     }
 
-    public Carpetas(String nombreCarp, String linkCarp, ArrayList<Archivos> listaArchivos, ArrayList<Carpetas> listaCarpetas) {
+    public Carpetas(String nombreCarp, String linkCarp) {
         this.nombreCarp = nombreCarp;
         this.linkCarp = linkCarp;
-        this.listaArchivos = listaArchivos;
-        this.listaCarpetas = listaCarpetas;
     }
 
     public String getNombreCarp() {

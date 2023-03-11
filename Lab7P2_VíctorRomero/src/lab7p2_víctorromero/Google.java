@@ -12,6 +12,8 @@ public class Google extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.pack();
+
+        ab = new administrarBarra(jProgressBar1);
     }
 
     /**
@@ -36,7 +38,7 @@ public class Google extends javax.swing.JFrame {
         AddCarpeta = new javax.swing.JFrame();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        ArchivoName1 = new javax.swing.JTextField();
+        CarpetaName1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -50,6 +52,7 @@ public class Google extends javax.swing.JFrame {
         jProgressBar1 = new javax.swing.JProgressBar();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jButton3 = new javax.swing.JButton();
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(660, 449));
@@ -111,7 +114,7 @@ public class Google extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Add Carpetas");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 29, 457, 82));
-        jPanel4.add(ArchivoName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 550, -1));
+        jPanel4.add(CarpetaName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 550, -1));
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -170,6 +173,11 @@ public class Google extends javax.swing.JFrame {
 
         NewCarpeta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         NewCarpeta.setText("NEW CARPETA");
+        NewCarpeta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NewCarpetaMouseClicked(evt);
+            }
+        });
         jPanel2.add(NewCarpeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 210, 80));
 
         NewArchivo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -190,6 +198,13 @@ public class Google extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
+        jButton3.setText("Descargar");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -202,10 +217,15 @@ public class Google extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
                         .addGap(12, 12, 12))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane1)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(179, 179, 179)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -216,9 +236,11 @@ public class Google extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -255,25 +277,62 @@ public class Google extends javax.swing.JFrame {
                 Link,
                 jComboBox1.getSelectedItem().toString(),
                 Double.parseDouble(ArchivoTamaño.getText()));
-        
+
         Archivos.add(a);
 
         AdminArchivos ap = new AdminArchivos("./archivos.virn");
         ap.cargarArchivo();
         ap.setArchivo(a);
-        ap.escribirArchivo();   
-        
+        ap.escribirArchivo();
+
         JOptionPane.showMessageDialog(null, "Agregado Exitosamente!");
         ArchivoName.setText("");
         ArchivoTamaño.setText("");
         System.out.println(Archivos);
-        
-        
+
+        AddArchivos.setVisible(false);
+        this.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
+        String Link = "dive.google.com/" + generateRandomLink(5);
+
+        Carpetas c = new Carpetas(CarpetaName1.getText(),
+                Link);
+
+        Carpetas.add(c);
+
+        AdminCarpeta ac = new AdminCarpeta("./carpetas.virn");
+        ac.cargarArchivo();
+        ac.setCarpeta(c);
+        ac.escribirArchivo();
+
+        JOptionPane.showMessageDialog(null, "Agregado Exitosamente!");
+        ArchivoName.setText("");
+        ArchivoTamaño.setText("");
+        System.out.println(Archivos);
+
+        AddCarpeta.setVisible(false);
+        this.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void NewCarpetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewCarpetaMouseClicked
+        this.setVisible(false);
+
+        AddArchivos.pack();
+        AddArchivos.setLocationRelativeTo(null);
+        AddArchivos.setVisible(true);
+    }//GEN-LAST:event_NewCarpetaMouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        try {
+            ab.start();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ya cargo pero no lo viste\n"
+                    + "Muy lento JAJAJAJA");
+        }
+
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -325,13 +384,15 @@ public class Google extends javax.swing.JFrame {
     }
 
     ArrayList Archivos = new ArrayList();
+    ArrayList Carpetas = new ArrayList();
+    administrarBarra ab;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame AddArchivos;
     private javax.swing.JFrame AddCarpeta;
     private javax.swing.JTextField ArchivoName;
-    private javax.swing.JTextField ArchivoName1;
     private javax.swing.JFormattedTextField ArchivoTamaño;
+    private javax.swing.JTextField CarpetaName1;
     private javax.swing.JButton Destacado;
     private javax.swing.JButton MiUnidad;
     private javax.swing.JButton NewArchivo;
@@ -339,6 +400,7 @@ public class Google extends javax.swing.JFrame {
     private javax.swing.JButton Papelera;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

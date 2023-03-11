@@ -20,7 +20,7 @@ public class AdminCarpeta {
     public AdminCarpeta() {
     }
 
-    public ArrayList<Carpetas> getListaCarpetas() {
+    public ArrayList<Carpetas> gesetCarpetatListaCarpetas() {
         return listaCarpetas;
     }
 
@@ -34,6 +34,10 @@ public class AdminCarpeta {
 
     public void setArchivo(File archivo) {
         this.archivo = archivo;
+    }
+    
+    public void setCarpeta(Carpetas a){
+        listaCarpetas.add(a);
     }
     
     public void cargarArchivo() {

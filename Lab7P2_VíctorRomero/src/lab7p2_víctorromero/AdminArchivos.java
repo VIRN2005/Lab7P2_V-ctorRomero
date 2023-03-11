@@ -33,6 +33,11 @@ public class AdminArchivos {
         this.archivo = archivo;
     }
     
+    public void setArchivo(Archivos a){
+        listaArchivos.add(a);
+    }
+
+    
     public void cargarArchivo() {
         try {            
             listaArchivos = new ArrayList();
