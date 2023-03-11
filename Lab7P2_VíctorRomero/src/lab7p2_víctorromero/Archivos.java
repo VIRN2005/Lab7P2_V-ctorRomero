@@ -54,10 +54,10 @@ public class Archivos implements Serializable {
     @Override
     public String toString() {
         return ">>Archivos<< " + "\n"
-                + "Nombre=" + nombre + " \n"
-                + "Link=" + link + " \n"
-                + "Extension=" + extension + " \n"
-                + "Tama\u00f1o=" + tamaño + '}';
+                + "//Nombre=" + nombre + " \n"
+                + "//Link=" + link + " \n"
+                + "//Extension=" + extension + " \n"
+                + "//Tama\u00f1o=" + tamaño + '}';
     }
 
 }
