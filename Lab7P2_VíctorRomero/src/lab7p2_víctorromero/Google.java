@@ -2,6 +2,7 @@ package lab7p2_víctorromero;
 
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 public class Google extends javax.swing.JFrame {
@@ -41,6 +42,9 @@ public class Google extends javax.swing.JFrame {
         CarpetaName1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jM_Destacados = new javax.swing.JMenuItem();
+        jM_Papelera = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         Destacado = new javax.swing.JButton();
@@ -152,6 +156,22 @@ public class Google extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
+        jM_Destacados.setText("Mover a Destacados");
+        jM_Destacados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jM_DestacadosMouseClicked(evt);
+            }
+        });
+        jM_Destacados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_DestacadosActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jM_Destacados);
+
+        jM_Papelera.setText("jMenuItem2");
+        jPopupMenu1.add(jM_Papelera);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -169,6 +189,11 @@ public class Google extends javax.swing.JFrame {
 
         MiUnidad.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         MiUnidad.setText("Mi Unidad");
+        MiUnidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MiUnidadActionPerformed(evt);
+            }
+        });
         jPanel2.add(MiUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 170, 60));
 
         NewCarpeta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -191,10 +216,10 @@ public class Google extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Google2.png"))); // NOI18N
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
         });
         jScrollPane1.setViewportView(jList1);
 
@@ -334,6 +359,32 @@ public class Google extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3MouseClicked
 
+    private void MiUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MiUnidadActionPerformed
+        AdminArchivos AA = new AdminArchivos("./archivos.virn");
+        AA.cargarArchivo();
+        jList1.setModel(llenarJList(AA));
+
+    }//GEN-LAST:event_MiUnidadActionPerformed
+
+    private void jM_DestacadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_DestacadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jM_DestacadosActionPerformed
+
+    private void jM_DestacadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jM_DestacadosMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jM_DestacadosMouseClicked
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        try {
+            if (evt.isMetaDown()) {
+                jPopupMenu1.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        } catch (Exception e) {
+
+        }
+
+    }//GEN-LAST:event_jList1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -383,6 +434,15 @@ public class Google extends javax.swing.JFrame {
         return sb.toString();
     }
 
+    public DefaultListModel llenarJList(AdminArchivos AA) {
+        DefaultListModel dlm = new DefaultListModel();
+
+        for (Archivos a : AA.getListaArchivos()) {
+            dlm.addElement(a.toString());
+        }
+        return dlm;
+    }
+
     ArrayList Archivos = new ArrayList();
     ArrayList Carpetas = new ArrayList();
     administrarBarra ab;
@@ -410,10 +470,13 @@ public class Google extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JMenuItem jM_Destacados;
+    private javax.swing.JMenuItem jM_Papelera;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

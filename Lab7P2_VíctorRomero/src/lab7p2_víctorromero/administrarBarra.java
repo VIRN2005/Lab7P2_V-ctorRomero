@@ -9,7 +9,6 @@ public class administrarBarra extends Thread {
 
     private JProgressBar barra;
     private boolean avanzar;
-    
 
     public administrarBarra(JProgressBar barra) {
         this.barra = barra;
@@ -32,22 +31,20 @@ public class administrarBarra extends Thread {
         this.barra = barra;
     }
 
-    
-    
     @Override
-     public void run() {
-            int progress = 0;
-            while (progress <= 100) {
-                barra.setValue(progress);
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                progress += 10;
+    public void run() {
+        int progress = 0;
+        while (progress <= 100) {
+            barra.setValue(progress);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            JOptionPane.showMessageDialog(null, "Descarga Competada!");
-                    
-            System.out.println("Descarga Competada!");
+            progress += 10;
         }
+        JOptionPane.showMessageDialog(null, "Descarga Competada!");
+
+        System.out.println("Descarga Competada!");
+    }
 }
